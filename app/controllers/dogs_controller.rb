@@ -1,12 +1,21 @@
 class DogsController < ApplicationController
+  before_action :set_breader
+
   def index
-    breed = params[:breed]
-    @breeder = DogBreeder.new(breed: breed)
+  end
+
+  # react version of form
+  def react
   end
 
   def search
+    render json: @breeder
+  end
+
+  private
+
+  def set_breader
     breed = params[:breed]
-    breeder = DogBreeder.new(breed: breed)
-    render json: breeder
+    @breeder = DogBreeder.new(breed: breed)
   end
 end

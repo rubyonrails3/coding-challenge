@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col">
-    <h1>Search Dogs Photo</h1>
+    <h1>Search Photo By Dog Breed(Rails Only No AJAX)</h1>
     <%= form_with url: root_path, method: :get, local: false do |form| %>
       <div class="mb-3">
         <label for="dogBreed" class="form-label">Breed:</label>
-        <input type="search" name="breed" class="form-control" id="dogBreed" aria-describedby="breedHelp">
+        <input type="search" value="<%= params[:breed] %>" name="breed" class="form-control" id="dogBreed" aria-describedby="breedHelp">
         <div id="breedHelp" class="form-text"><%= @breeder.error_message %></div>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>

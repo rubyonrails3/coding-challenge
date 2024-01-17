@@ -27,7 +27,7 @@ export default function BreedImageSearch() {
   return (
     <div className="row">
       <div id="1" className="col">
-        <h1>Search Dog Photos</h1>
+        <h1>Search Photo By Dog Breed(Aysnc with ReactJS)</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="breed" className="form-label">
@@ -50,7 +50,6 @@ export default function BreedImageSearch() {
         </form>
       </div>
       <div id="2" className="col">
-        <h1>Dog Images</h1>
         {renderedImages}
       </div>
     </div>

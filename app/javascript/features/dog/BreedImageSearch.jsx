@@ -15,6 +15,7 @@ export default function BreedImageSearch() {
           setImages([]);
         } else if (json.isSuccess) {
           setImages(json.images);
+          setErrorMessage('');
         }
       });
   }

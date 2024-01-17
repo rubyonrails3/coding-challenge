@@ -1,7 +1,7 @@
 class DogBreeder
   attr_reader :breed
   def initialize(breed: "")
-    @breed = breed
+    @breed = "#{breed}".downcase
   end
 
   def success?

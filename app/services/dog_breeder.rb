@@ -20,6 +20,15 @@ class DogBreeder
     error? ? result.fetch("message", "") : ""
   end
 
+  def as_json(options = {})
+    {
+      isError: error?,
+      isSuccess: success?,
+      images: images,
+      errorMessage: error_message
+    }
+  end
+
   private
 
   def result

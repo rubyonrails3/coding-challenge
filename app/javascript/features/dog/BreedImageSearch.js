@@ -3,30 +3,22 @@ import React, { useState } from 'react';
 export default function BreedImageSearch() {
   const [breed, setBreed] = useState('');
   const [images, setImages] = useState([]);
-  const [errorMessage, setErrorMessage] = useState('');
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch(`/dogs/search.json?breed=${breed}`)
-      .then(response => response.json())
-      .then(json => {
-        if (json.isError) {
-          setErrorMessage(json.errorMessage);
-          setImages([]);
-        } else if (json.isSuccess) {
-          setImages(json.images);
-          setErrorMessage('');
-        }
-      });
+    fetch(`${e.target.value}`).then(response => {
+      console.log(response);
+      setImages([]);
+    });
   }
 
   const renderedImages = images.map(image => (
-    <img key={image} src={image} className="img-thumbnail" alt={image} />
+    <img src={image} className="img-thumbnail" alt={image} />
   ));
 
   return (
     <div className="row">
-      <div id="1" className="col">
+      <div className="col">
         <h1>Search Dog Photos</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
@@ -40,17 +32,17 @@ export default function BreedImageSearch() {
               value={breed}
               onChange={e => setBreed(e.target.value)}
             />
-            <div id="breedHelp" className="form-text text-danger">
-              {errorMessage}
+            <div id="breedHelp" className="form-text">
+              {'message'}
             </div>
+            <button type="submit" className="btn btn-primary">
+              Submit
+            </button>
           </div>
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
         </form>
       </div>
-      <div id="2" className="col">
-        <h1>Dog Images</h1>
+      <div className="col">
+        <p>Images goes here...</p>
         {renderedImages}
       </div>
     </div>

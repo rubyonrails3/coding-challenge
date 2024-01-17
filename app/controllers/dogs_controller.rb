@@ -7,11 +7,6 @@ class DogsController < ApplicationController
   def search
     breed = params[:breed]
     breeder = DogBreeder.new(breed: breed)
-    render json: {
-      isError: breeder.error?,
-      isSuccess: breeder.success?,
-      images: breeder.images,
-      errorMessage: breeder.error_message
-    }
+    render json: breeder
   end
 end

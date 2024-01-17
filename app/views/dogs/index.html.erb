@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col">
+    <h1>Search Dogs Photo</h1>
+    <%= form_with url: root_path, method: :get, local: false do |form| %>
+      <div class="mb-3">
+        <label for="dogBreed" class="form-label">Breed:</label>
+        <input type="search" name="breed" class="form-control" id="dogBreed" aria-describedby="breedHelp">
+        <div id="breedHelp" class="form-text"><%= @breeder.error_message %></div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    <% end %>
+  </div>
+  <div class="col">
+    <% @breeder.images.each do |image| %>
+      <%= image_tag image, class: "img-thumbnail" %>
+    <% end %>
+  </div>
+</div>
